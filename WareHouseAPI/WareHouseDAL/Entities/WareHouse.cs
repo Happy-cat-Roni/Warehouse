@@ -11,6 +11,6 @@ namespace WareHouseDAL.Entities
         public string Id { get; set; } = null!;
         public string Name { get; set; } = null!;
         public Director? Director { get; set; }
-        public IEnumerable<Waiter>? Waiters { get; set; }
+        public IEnumerable<Employees>? Employees { get; set; }
     }
 }

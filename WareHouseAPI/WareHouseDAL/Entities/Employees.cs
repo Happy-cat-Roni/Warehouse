@@ -7,7 +7,7 @@ using WareHouseDAL.Entities;
 
 namespace WareHouseDAL.Entities
 {
-    public class Waiter
+    public class Employees
     {
         public string Id { get; set; } = null!;
         public string Name { get; set; } = null!;
