@@ -1,4 +1,5 @@
 
+using WareHouseAPI.DI;
 using WareHouseAPI.Middlewares;
 
 namespace WareHouseAPI
@@ -15,6 +16,7 @@ namespace WareHouseAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddApiDependencies(builder.Configuration.GetConnectionString("DefaultConnection"));
 
             var app = builder.Build();
 
