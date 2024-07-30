@@ -16,7 +16,7 @@ namespace WareHouseDAL
             
         }
 
-        public DbSet<WareHouse> WareHouse { get; set; }
+        public DbSet<WareHouse> WareHouses { get; set; }
         public DbSet<Employees> Employees { get; set; }
         public DbSet<Director> Directors { get; set; }
 
