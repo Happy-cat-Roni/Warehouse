@@ -91,7 +91,7 @@ namespace WareHouseDAL.Migrations
 
                     b.HasIndex("DirectorId");
 
-                    b.ToTable("WareHouse");
+                    b.ToTable("WareHouses");
                 });
 
             modelBuilder.Entity("EmployeesWareHouse", b =>

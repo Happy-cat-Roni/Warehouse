@@ -7,9 +7,8 @@ using WareHouseDAL.Entities;
 
 namespace WareHouseDAL.Entities
 {
-    public class Employees
+    public class Employees : BaseEntity
     {
-        public string Id { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string LastName { get; set; } = null!;
         public double Salary { get; set; }
