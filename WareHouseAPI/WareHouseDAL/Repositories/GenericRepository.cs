@@ -28,7 +28,7 @@ namespace WareHouseDAL.Repositories
             return element;
         }
 
-        public async Task Delete(int id, CancellationToken cancellationToken)
+        public async Task Delete(string id, CancellationToken cancellationToken)
         {
             var element = await dbSet.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 

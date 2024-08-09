@@ -10,6 +10,6 @@ namespace WareHouseDAL.Interface
     public interface IGenericRepository<TEntity> where TEntity :BaseEntity
     {
         Task<TEntity> Create(TEntity element, CancellationToken cancellationToken);
-        Task Delete(int id, CancellationToken cancellationToken);
+        Task Delete(string id, CancellationToken cancellationToken);
     }
 }
