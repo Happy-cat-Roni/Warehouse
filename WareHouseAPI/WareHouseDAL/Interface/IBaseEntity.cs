@@ -8,6 +8,6 @@ namespace WareHouseDAL.Interface
 {
     public interface IBaseEntity
     {
-        public string Id { get; set; }
+        public string Id { get; set; } = null!;
     }
 }

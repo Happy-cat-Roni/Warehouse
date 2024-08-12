@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WareHouseDAL.Interface;
 
-namespace WareHouseDAL.Entities
+namespace WareHouseBLL.Interface
 {
-    public class BaseEntity : IBaseEntity
+    public interface IBaseModel
     {
         public string Id { get; set; } = null!;
     }
