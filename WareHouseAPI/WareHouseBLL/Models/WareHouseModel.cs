@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WareHouseDAL.Entities;
 
 namespace WareHouseBLL.Models
 {
-    public class WareHouseModel
+    public class WareHouseModel : BaseModel
     {
-        public string Id { get; set; } = null!;
+        public string Name { get; set; } = null!;
+        public DirectorModel? Director { get; set; }
     }
 }

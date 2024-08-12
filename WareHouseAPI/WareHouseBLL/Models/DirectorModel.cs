@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace WareHouseBLL.Models
 {
-    public class DirectorModel
+    public class DirectorModel : BaseModel
     {
-        public string Id { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string LastName { get; set; } = null!;
     }

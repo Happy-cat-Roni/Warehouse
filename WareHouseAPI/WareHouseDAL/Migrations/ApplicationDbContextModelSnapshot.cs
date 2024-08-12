@@ -33,7 +33,7 @@ namespace WareHouseDAL.Migrations
 
                     b.HasIndex("WareHousesId");
 
-                    b.ToTable("EmployeesWareHouse");
+                    b.ToTable("EmployeesWareHouse", (string)null);
                 });
 
             modelBuilder.Entity("WareHouseDAL.Entities.Director", b =>
@@ -51,7 +51,7 @@ namespace WareHouseDAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Directors");
+                    b.ToTable("Directors", (string)null);
                 });
 
             modelBuilder.Entity("WareHouseDAL.Entities.Employees", b =>
@@ -72,7 +72,7 @@ namespace WareHouseDAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
                 });
 
             modelBuilder.Entity("WareHouseDAL.Entities.WareHouse", b =>
@@ -91,7 +91,7 @@ namespace WareHouseDAL.Migrations
 
                     b.HasIndex("DirectorId");
 
-                    b.ToTable("WareHouses");
+                    b.ToTable("WareHouses", (string)null);
                 });
 
             modelBuilder.Entity("EmployeesWareHouse", b =>

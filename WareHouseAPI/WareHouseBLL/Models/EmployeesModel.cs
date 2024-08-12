@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace WareHouseBLL.Models
 {
-    public class EmployeesModel
+    public class EmployeesModel : BaseModel
     {
-        public string Id { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string LastName { get; set; } = null!;
         public double Salary { get; set; }
