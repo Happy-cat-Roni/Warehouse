@@ -38,5 +38,24 @@ namespace WareHouseDAL.Repositories
                 await dbContext.SaveChangesAsync(cancellationToken);
             }
         }
+
+        public async Task<TEntity> Update(TEntity element, CancellationToken cancellationToken)
+        {
+            dbSet.Update(element);
+            await dbContext.SaveChangesAsync(cancellationToken);
+            return element;
+        }
+
+        public async Task<List<TEntity>> GetAll(CancellationToken cancellationToken)
+        {
+            return await dbSet.ToListAsync(cancellationToken);
+        }
+
+        public async Task<TEntity?> GetById(string id, CancellationToken cancellationToken)
+        {
+            var element = await dbSet.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+
+            return element;
+        }
     }
 }

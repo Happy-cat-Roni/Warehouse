@@ -11,5 +11,8 @@ namespace WareHouseDAL.Interface
     {
         Task<TEntity> Create(TEntity element, CancellationToken cancellationToken);
         Task Delete(string id, CancellationToken cancellationToken);
+        Task<TEntity> Update(TEntity element, CancellationToken cancellationToken);
+        Task<List<TEntity>> GetAll(CancellationToken cancellationToken);
+        Task<TEntity?> GetById(string id, CancellationToken cancellationToken);
     }
 }
