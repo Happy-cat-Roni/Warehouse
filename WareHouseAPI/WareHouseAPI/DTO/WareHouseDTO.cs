@@ -1,7 +1,7 @@
 ﻿using WareHouseAPI.DTO;
 using WareHouseBLL.Models;
 
-namespace CaffeAPI.DTO
+namespace WareHouseAPI.DTO
 {
     public class WareHouseDTO : BaseDTO
     {

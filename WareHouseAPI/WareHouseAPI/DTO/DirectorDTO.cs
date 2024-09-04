@@ -1,6 +1,6 @@
 ﻿using WareHouseAPI.DTO;
 
-namespace CaffeAPI.DTO
+namespace WareHouseAPI.DTO
 {
     public class DirectorDTO : BaseDTO
     {
