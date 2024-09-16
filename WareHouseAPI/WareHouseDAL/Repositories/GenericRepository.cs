@@ -9,12 +9,12 @@ using WareHouseDAL.Interface;
 
 namespace WareHouseDAL.Repositories
 {
-    public class GenericService<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
     {
         protected readonly ApplicationDbContext dbContext;
         protected readonly DbSet<TEntity> dbSet;
 
-        public GenericService(ApplicationDbContext applicationDbContext)
+        public GenericRepository(ApplicationDbContext applicationDbContext)
         {
             this.dbContext = applicationDbContext;
             dbSet = applicationDbContext.Set<TEntity>();

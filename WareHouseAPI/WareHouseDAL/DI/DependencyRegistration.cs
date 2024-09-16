@@ -10,9 +10,9 @@ namespace WareHouseDAL.DI
     {
         public static void AddDALDependencies(this IServiceCollection services, string? connectionString)
         {
-            services.AddScoped<IGenericRepository<WareHouse>, GenericService<WareHouse>>();
-            services.AddScoped<IGenericRepository<Employees>, GenericService<Employees>>();
-            services.AddScoped<IGenericRepository<Director>, GenericService<Director>>();
+            services.AddScoped<IGenericRepository<WareHouse>, GenericRepository<WareHouse>>();
+            services.AddScoped<IGenericRepository<Employees>, GenericRepository<Employees>>();
+            services.AddScoped<IGenericRepository<Director>, GenericRepository<Director>>();
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
         }
