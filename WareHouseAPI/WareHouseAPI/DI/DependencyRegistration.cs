@@ -1,4 +1,11 @@
-﻿using WareHouseBLL.DI;
+﻿using WareHouseAPI.DTO;
+using WareHouseBLL.DI;
+using WareHouseBLL.Interface;
+using WareHouseBLL.Models;
+using WareHouseBLL.Service;
+using WareHouseDAL.Entities;
+using WareHouseDAL.Interface;
+using WareHouseDAL.Repositories;
 
 namespace WareHouseAPI.DI
 {
