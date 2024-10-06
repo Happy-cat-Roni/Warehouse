@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WareHouseDAL.Entities;
 using WareHouseDAL.Interface;
 
@@ -28,9 +23,10 @@ namespace WareHouseDAL.Repositories
             return element;
         }
 
-        public async Task Delete(string id, CancellationToken cancellationToken)
+        public async Task Delete(Guid id, CancellationToken cancellationToken)
         {
             var element = await dbSet.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+   
 
             if (element != null)
             {
@@ -51,7 +47,7 @@ namespace WareHouseDAL.Repositories
             return await dbSet.ToListAsync(cancellationToken);
         }
 
-        public async Task<TEntity?> GetById(string id, CancellationToken cancellationToken)
+        public async Task<TEntity?> GetById(Guid id, CancellationToken cancellationToken)
         {
             var element = await dbSet.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 

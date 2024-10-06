@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WareHouseBLL.Interface
+namespace WareHouseAPI.Interface
 {
     public interface IBaseDTO
     {
-        public string Id { get; set; }
+        public Guid? Id { get; set; }
     }
 }

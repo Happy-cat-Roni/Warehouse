@@ -8,6 +8,6 @@ namespace WareHouseBLL.Interface
 {
     public interface IBaseModel
     {
-        public string Id { get; set; }
+        public Guid? Id { get; set; }
     }
 }

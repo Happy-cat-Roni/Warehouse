@@ -9,7 +9,7 @@ namespace WareHouseBLL.Models
 {
     public class BaseModel : IBaseModel
     {
-        public string Id { get; set; } = null!;
+        public Guid? Id { get; set; }
 
     }
 }

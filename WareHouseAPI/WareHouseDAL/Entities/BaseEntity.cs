@@ -9,6 +9,6 @@ namespace WareHouseDAL.Entities
 {
     public class BaseEntity : IBaseEntity
     {
-        public string Id { get; set; } = null!;
+        public Guid? Id { get; set; }
     }
 }
