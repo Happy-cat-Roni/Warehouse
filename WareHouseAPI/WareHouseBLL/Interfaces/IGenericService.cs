@@ -11,9 +11,9 @@ namespace WareHouseBLL.Interface
     public interface IGenericService<TModel> where TModel : BaseModel
     {
         Task Create(TModel model, CancellationToken cancellationToken);
-        Task Delete(string id, CancellationToken cancellationToken);
+        Task Delete(Guid id, CancellationToken cancellationToken);
         Task Update(TModel model, CancellationToken cancellationToken);
         Task<List<TModel>> GetAll(CancellationToken cancellationToken);
-        Task<TModel?> GetById(string id, CancellationToken cancellationToken);
+        Task<TModel?> GetById(Guid id, CancellationToken cancellationToken);
     }
 }

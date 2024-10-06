@@ -9,6 +9,7 @@ namespace WareHouseDAL.Entities
     public class WareHouse : BaseEntity
     {
         public string Name { get; set; } = null!;
+        public Guid DirectorId { get; set; }
         public Director? Director { get; set; }
         public IEnumerable<Employees>? Employees { get; set; }
     }

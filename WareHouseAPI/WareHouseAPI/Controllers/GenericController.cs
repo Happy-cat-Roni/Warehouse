@@ -31,7 +31,7 @@ public class GenericController<TModel,DTO> : ControllerBase
     }
 
     [HttpGet]
-    public async Task<DTO?> GetById(string id, CancellationToken cancellationToken)
+    public async Task<DTO?> GetById(Guid id, CancellationToken cancellationToken)
     {
         var result = await _genericService.GetById(id, cancellationToken);
 
@@ -51,7 +51,7 @@ public class GenericController<TModel,DTO> : ControllerBase
     }
 
     [HttpDelete]
-    public async Task Delete(string id, CancellationToken cancellationToken)
+    public async Task Delete(Guid id, CancellationToken cancellationToken)
     {
         await _genericService.Delete(id, cancellationToken);
     }

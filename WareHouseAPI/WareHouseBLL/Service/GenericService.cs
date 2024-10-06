@@ -31,7 +31,7 @@ namespace WareHouseBLL.Service
             await _genericRepository.Create(entity, cancellationToken);
         }
 
-        public async Task Delete(string id, CancellationToken cancellationToken)
+        public async Task Delete(Guid id, CancellationToken cancellationToken)
         {
             await _genericRepository.Delete(id, cancellationToken);
         }
@@ -50,7 +50,7 @@ namespace WareHouseBLL.Service
             return _mapper.Map<List<TModel>>(result);
         }
 
-        public async Task<TModel?> GetById(string id, CancellationToken cancellationToken)
+        public async Task<TModel?> GetById(Guid id, CancellationToken cancellationToken)
         {
             var result = await _genericRepository.GetById(id, cancellationToken);
 

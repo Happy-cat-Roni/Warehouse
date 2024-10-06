@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace WareHouseDAL.Migrations
 {
     /// <inheritdoc />
-    public partial class firstmigration : Migration
+    public partial class AddDataBase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,7 +15,7 @@ namespace WareHouseDAL.Migrations
                 name: "Directors",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -27,7 +28,7 @@ namespace WareHouseDAL.Migrations
                 name: "Employees",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Salary = table.Column<double>(type: "float", nullable: false)
@@ -38,29 +39,30 @@ namespace WareHouseDAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "WareHouse",
+                name: "WareHouses",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DirectorId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    DirectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WareHouse", x => x.Id);
+                    table.PrimaryKey("PK_WareHouses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_WareHouse_Directors_DirectorId",
+                        name: "FK_WareHouses_Directors_DirectorId",
                         column: x => x.DirectorId,
                         principalTable: "Directors",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "EmployeesWareHouse",
                 columns: table => new
                 {
-                    EmployeesId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    WareHousesId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    EmployeesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WareHousesId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -72,9 +74,9 @@ namespace WareHouseDAL.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EmployeesWareHouse_WareHouse_WareHousesId",
+                        name: "FK_EmployeesWareHouse_WareHouses_WareHousesId",
                         column: x => x.WareHousesId,
-                        principalTable: "WareHouse",
+                        principalTable: "WareHouses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -85,8 +87,8 @@ namespace WareHouseDAL.Migrations
                 column: "WareHousesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_WareHouse_DirectorId",
-                table: "WareHouse",
+                name: "IX_WareHouses_DirectorId",
+                table: "WareHouses",
                 column: "DirectorId");
         }
 
@@ -100,7 +102,7 @@ namespace WareHouseDAL.Migrations
                 name: "Employees");
 
             migrationBuilder.DropTable(
-                name: "WareHouse");
+                name: "WareHouses");
 
             migrationBuilder.DropTable(
                 name: "Directors");

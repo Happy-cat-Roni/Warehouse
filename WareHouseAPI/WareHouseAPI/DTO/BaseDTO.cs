@@ -4,7 +4,7 @@ namespace WareHouseAPI.DTO
 {
     public class BaseDTO : IBaseDTO
     {
-        public string Id { get; set; } = null!;
+        public Guid? Id { get; set; }
 
     }
 }
