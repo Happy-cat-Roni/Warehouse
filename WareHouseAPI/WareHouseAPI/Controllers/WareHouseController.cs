@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using WareHouseAPI.DTO;
 using WareHouseBLL.Interface;
 using WareHouseBLL.Models;
@@ -10,7 +11,7 @@ namespace WareHouseAPI.Controllers
     [Route("api/[controller]")]
     public class WareHouseController : GenericController<WareHouseModel, WareHouseDTO>
     {
-        public WareHouseController(IGenericService<WareHouseModel> genericService)
-            : base(genericService) { }
+        public WareHouseController(IGenericService<WareHouseModel> genericService, IMapper mapper)
+            : base(genericService, mapper) { }
     }
 }

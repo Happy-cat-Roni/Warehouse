@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WareHouseBLL.Interface
+namespace WareHouseAPI.Interface
 {
     public interface IBaseDTO
     {

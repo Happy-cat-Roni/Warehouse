@@ -1,4 +1,4 @@
-﻿using WareHouseBLL.Interface;
+﻿using WareHouseAPI.Interface;
 
 namespace WareHouseAPI.DTO
 {

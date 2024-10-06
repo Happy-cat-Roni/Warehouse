@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,18 +16,17 @@ namespace WareHouseBLL.Service
         where TEntity : BaseEntity, new()
     {
         private readonly IGenericRepository<TEntity> _genericRepository;
+        private readonly IMapper _mapper;
 
-        public GenericService(IGenericRepository<TEntity> genericRepository)
+        public GenericService(IGenericRepository<TEntity> genericRepository, IMapper mapper)
         {
             _genericRepository = genericRepository;
+            _mapper = mapper;
         }
 
         public async Task Create(TModel model, CancellationToken cancellationToken)
         {
-            var entity = new TEntity
-            {
-                Id = model.Id
-            };
+            var entity = _mapper.Map<TEntity>(model);
 
             await _genericRepository.Create(entity, cancellationToken);
         }
@@ -38,7 +38,7 @@ namespace WareHouseBLL.Service
 
         public async Task Update(TModel model, CancellationToken cancellationToken)
         {
-            var entity = new TEntity { Id = model.Id };
+            var entity = _mapper.Map<TEntity>(model);
 
             await _genericRepository.Update(entity, cancellationToken);
         }
@@ -47,7 +47,7 @@ namespace WareHouseBLL.Service
         {
             var result = await _genericRepository.GetAll(cancellationToken);
 
-            return result.Select(x => new TModel { Id = x.Id }).ToList();
+            return _mapper.Map<List<TModel>>(result);
         }
 
         public async Task<TModel?> GetById(string id, CancellationToken cancellationToken)
@@ -57,10 +57,7 @@ namespace WareHouseBLL.Service
             if (result == null)
                 throw new Exception();
 
-            return new TModel
-            {
-                Id = result.Id
-            };
+            return _mapper.Map<TModel>(result);
         }
     }
 }
