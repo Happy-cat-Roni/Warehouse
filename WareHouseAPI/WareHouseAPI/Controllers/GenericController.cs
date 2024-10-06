@@ -13,7 +13,6 @@ public class GenericController<TModel,DTO> : ControllerBase
     where DTO : IBaseDTO,new()
 {
     private readonly IGenericService<TModel> _genericService;
-    //private readonly MappersAPI _mappers = new MappersAPI();
     private readonly IMapper _mapper;
 
     public GenericController(IGenericService<TModel> genericService, IMapper mapper)
@@ -42,12 +41,11 @@ public class GenericController<TModel,DTO> : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(DTO dto, CancellationToken cancellationToken)
+    public async Task Create(DTO dto, CancellationToken cancellationToken)
     {
         var model = _mapper.Map<TModel>(dto);
 
         await _genericService.Create(model, cancellationToken);
-        return CreatedAtAction(nameof(GetById), new { id = model.Id }, dto);
     }
 
     [HttpDelete]

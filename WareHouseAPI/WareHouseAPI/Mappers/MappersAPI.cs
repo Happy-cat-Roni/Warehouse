@@ -6,7 +6,6 @@ namespace WareHouseAPI.Mappers
 {
     public class MappersAPI : Profile 
     {
-
         public MappersAPI()
         {
             CreateMap<WareHouseDTO, WareHouseModel>().ReverseMap();
