@@ -17,7 +17,8 @@ namespace WareHouseAPI
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddApiDependencies(builder.Configuration.GetConnectionString("DefaultConnection"));
+            //builder.Services.AddApiDependencies(builder.Configuration.GetConnectionString("DefaultConnection"));
+            builder.Services.AddApiDependencies(builder, builder.Configuration.GetConnectionString("DefaultConnection"));
             builder.Services.AddSwaggerGen();
             builder.Services.AddAutoMapper(typeof(MappersAPI).Assembly, typeof(MappersBLL).Assembly);
 
