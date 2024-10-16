@@ -1,4 +1,3 @@
-
 using WareHouseAPI.DI;
 using WareHouseAPI.Mappers;
 using WareHouseAPI.Middlewares;
@@ -12,12 +11,8 @@ namespace WareHouseAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            //builder.Services.AddApiDependencies(builder.Configuration.GetConnectionString("DefaultConnection"));
             builder.Services.AddApiDependencies(builder, builder.Configuration.GetConnectionString("DefaultConnection"));
             builder.Services.AddSwaggerGen();
             builder.Services.AddAutoMapper(typeof(MappersAPI).Assembly, typeof(MappersBLL).Assembly);
@@ -26,7 +21,6 @@ namespace WareHouseAPI
 
             app.UseMiddleware<ExceptionHandlingMiddleware>();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -36,7 +30,6 @@ namespace WareHouseAPI
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
