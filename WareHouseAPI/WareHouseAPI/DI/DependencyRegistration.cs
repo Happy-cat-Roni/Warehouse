@@ -12,7 +12,6 @@ namespace WareHouseAPI.DI
         {
             services.AddBLLDependencies(connectionString);
 
-            //builder.Services.AddValidatorsFromAssemblyContaining<DirectorValidation>();
             services.AddValidatorsFromAssemblyContaining<WareHouseValidaton>();
             services.AddValidatorsFromAssemblyContaining<EmployeeValidation>();
             services.AddValidatorsFromAssemblyContaining<DirectorValidation>();
