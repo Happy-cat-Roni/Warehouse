@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Microsoft.AspNetCore.Identity;
+using Serilog;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 using WareHouseAPI.FluentValidation;
 using WareHouseBLL.DI;
@@ -17,6 +17,10 @@ namespace WareHouseAPI.DI
             services.AddValidatorsFromAssemblyContaining<DirectorValidation>();
 
             builder.Services.AddFluentValidationAutoValidation();
+
+            Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+
+            builder.Logging.AddSerilog().SetMinimumLevel(LogLevel.Information);
         }
     }
 }
