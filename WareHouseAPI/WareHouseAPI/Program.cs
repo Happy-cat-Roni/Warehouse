@@ -1,4 +1,3 @@
-
 using WareHouseAPI.DI;
 using WareHouseAPI.Mappers;
 using WareHouseAPI.Middlewares;
@@ -12,7 +11,8 @@ namespace WareHouseAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
+          feature/WH-14-Add-logging
+          main
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddApiDependencies(builder, builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -32,7 +32,6 @@ namespace WareHouseAPI
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
